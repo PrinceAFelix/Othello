@@ -623,7 +623,7 @@ public class OthelloViewController extends JFrame {
 					}else {
 						gameBoard[activeRow][activeCol].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED));
 					}
-					bPieceCount = model.chipCount(1);
+					
 					
 					
 				}else if(currentPlayer == 2) {
@@ -638,7 +638,7 @@ public class OthelloViewController extends JFrame {
 					}else {
 						gameBoard[activeRow][activeCol].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.RED));
 					}
-					wPieceCount = model.chipCount(2);
+					
 					
 				}
 				
@@ -647,7 +647,8 @@ public class OthelloViewController extends JFrame {
 					captureCount = 0;
 				}
 				
-
+				bPieceCount = model.chipCount(1) == 0 ? bPieceCount : model.chipCount(1);
+				wPieceCount = model.chipCount(2) == 0 ? wPieceCount : model.chipCount(2);
 				
 				setScoreText();
 				
@@ -747,14 +748,12 @@ public class OthelloViewController extends JFrame {
 			
 			
 			if(ae.getSource() == about) {
-				JOptionPane.showMessageDialog(null, "<html>Othello Game <br>by Prince Felix <br><br>June 2021</html>", "About", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "<html>Othello Game <br>by Prince Felix <br><br>https://princeafelix.github.io/Prince-Felix-Portfolio/<br><br>August 2022</html>", "About", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(ae.getSource() == exit) {
 				System.exit(0);
 			}
-			
-			
 			
 			
 			//Repaint COlor
